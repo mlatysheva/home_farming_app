@@ -79,6 +79,8 @@ export const LightSettings = (props: LightSettingsProps) => {
       console.log(currentLightValue);
       console.log(currentLightValue < permittedMaximum);
       return currentLightValue < permittedMaximum;
+    } else {
+      return true;
     }
   }
 

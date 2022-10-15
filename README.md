@@ -9,6 +9,11 @@ The colors are:
 - red
 - far-red
 
+## Deployed app
+The app is deployed to GitHub pages here:
+<br>
+https://mlatysheva.github.io/agrilution_app 
+
 ## API Endpoint 
 
 The following api endpoint was used for this app:

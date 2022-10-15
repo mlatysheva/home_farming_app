@@ -10,6 +10,11 @@ import { store } from "../shared/store/store";
 import { SelectedPlantPage } from "../pages/SelectedPlantPage";
 import { Spinner } from "../shared/ui/Spinner";
 import { Footer } from "../widgets/Footer";
+import { constants } from "../utils/constants";
+
+/**
+ * @description This path is necessary for the deployment to github.
+ */
 
 /**
  * @description The main component of the app.
@@ -24,10 +29,10 @@ function App() {
         <Provider store={store}>
           <Header />
           <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/plants" element={<PlantsPage />} />
-            <Route path="/plants/:id" element={<SelectedPlantPage />} />
-            <Route path="/*" element={<NotFoundPage />} />
+            <Route path={`/${constants.baseUrl}`} element={<HomePage />} />
+            <Route path={`/${constants.baseUrl}/plants`} element={<PlantsPage />} />
+            <Route path={`/${constants.baseUrl}/plants/:id`} element={<SelectedPlantPage />} />
+            <Route path={`/${constants.baseUrl}/*`} element={<NotFoundPage />} />
           </Routes>
           <Footer />
         </Provider>

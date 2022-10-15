@@ -2,6 +2,8 @@ import { useNavigate } from "react-router-dom";
 import { setSelectedPlant } from "../features/selectedPlantSlice";
 import { useAppDispatch } from "../shared/store/hooks";
 import { PlantCardProps } from "../types";
+import { constants } from "../utils/constants";
+import { Tags } from "./Tags";
 
 /**
  * @description: PlantCard component renders a single plant card
@@ -18,7 +20,7 @@ export const PlantCard = (props: PlantCardProps) =>{
    * @description: Set the selected plant to the Redux store, navigate to the selected plant page and set the id to LS
    */
   const handlePlant = () => {
-    navigate(`/plants/${props.id}`);
+    navigate(`/${constants.baseUrl}/plants/${props.id}`);
     dispatch(setSelectedPlant(props));
     localStorage.setItem("selectedPlant", JSON.stringify(props.id));
   }

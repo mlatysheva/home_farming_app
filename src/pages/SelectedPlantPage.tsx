@@ -4,6 +4,7 @@ import "./SelectedPlantPage.scss";
 import { useAppDispatch, useAppSelector } from '../shared/store/hooks';
 import { useEffect } from "react";
 import { setBlueLight, setFarredLight, setRedLight, setWhiteLigtht } from "../features/lightsSlice";
+import { constants } from "../utils/constants";
 
 export const SelectedPlantPage = () => {
   const navigate = useNavigate();
@@ -60,7 +61,7 @@ export const SelectedPlantPage = () => {
             className="back-button"
             type="button"
             onClick={() => {
-              navigate('/plants');
+              navigate(`/${constants.baseUrl}/plants`);
             }}
           >
             Back
