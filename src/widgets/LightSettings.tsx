@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
-import { setBlueLight, setFarredLight, setRedLight, setWhiteLigtht } from "../features/lightsSlice";
+import { setBlueLight, setError, setFarredLight, setRedLight, setWhiteLigtht } from "../features/lightsSlice";
 import { useAppDispatch, useAppSelector } from "../shared/store/hooks";
-import "./LightSettings.scss";
-import { constants } from "../utils/constants";
+import { constants } from "../shared/constants";
 
 const colorDescriptions = {
   blue: "Ensures healthy roots, strong stems, and healthy - bigger- leafs.",
@@ -24,10 +23,11 @@ interface LightSettingsProps {
 export const LightSettings = (props: LightSettingsProps) => {
 
   const description = (colorDescriptions as any)[props.color];
-  const [value, setValue] = useState(props.range[0]);
   const dispatch = useAppDispatch();
-  const currentLightSettings = useAppSelector((state) => state.lights);
-
+  const currentLightSettings = useAppSelector((state) => state.lights.lights);
+  const [value, setValue] = useState(props.range[0]);
+  let currentColorValue = 0;
+  // const [value, setValue] = useState(currentColorValue);
   /**
    * @description dispatch the initial light value to the Redux store
    */
@@ -35,20 +35,24 @@ export const LightSettings = (props: LightSettingsProps) => {
     switch (props.color) {
       case "blue":
         dispatch(setBlueLight(value));
+        currentColorValue = currentLightSettings.blue || 0;
         break;
       case "red":
         dispatch(setRedLight(value));
+        currentColorValue = currentLightSettings.red || 0;
         break;
       case "farred":
         dispatch(setFarredLight(value));
+        currentColorValue = currentLightSettings.farred || 0;
         break;
       case "white":
         dispatch(setWhiteLigtht(value));
+        currentColorValue = currentLightSettings.white || 0;
         break;
       default:
         break;
     }
-  }, []);
+  });
 
   /**
    * @description: dispatch the correct light-setting action to the Redux store from the user input
@@ -68,58 +72,74 @@ export const LightSettings = (props: LightSettingsProps) => {
    * @returns Boolean
    */
   const checkIfMaximumNotExceeded = (permittedMaximum = constants.MAXIMUM_LIGHT_VALUE) => {
-    if (currentLightSettings.lights.blue 
-      && currentLightSettings.lights.red
-      && currentLightSettings.lights.farred 
-      && currentLightSettings.lights.white) {
-      const currentLightValue = currentLightSettings.lights.blue 
-        + currentLightSettings.lights.red 
-        + currentLightSettings.lights.farred 
-        + currentLightSettings.lights.white;
-      console.log(currentLightValue);
-      console.log(currentLightValue < permittedMaximum);
+    if (currentLightSettings.blue 
+      && currentLightSettings.red
+      && currentLightSettings.farred 
+      && currentLightSettings.white) {
+      const currentLightValue = currentLightSettings.blue 
+        + currentLightSettings.red 
+        + currentLightSettings.farred 
+        + currentLightSettings.white;
       return currentLightValue < permittedMaximum;
     } else {
       return true;
     }
   }
 
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (checkIfMaximumNotExceeded()) {
+      setValue(parseInt(e.target.value))
+      fireRequiredLightDispatch();
+    } else if (parseInt(e.target.value) < value) {
+      dispatch(setError(false));
+      setValue(parseInt(e.target.value))
+      fireRequiredLightDispatch();  
+    } else {
+      dispatch(setError(true));
+    }      
+  }
+
+  /**
+   * @description: Style the input range element depending on the given light color
+   * @returns {CSS object} 
+   */
+  const getBackgroundSize = () => {
+    let color = props.color;
+    switch (color) {
+      case "farred":
+        color = "darkred";
+        break;
+      case "white":
+        color = "gray";
+        break;
+    }
+    return {
+      backgroundSize: `${((value - props.range[0]) * 100) / (props.range[1] - props.range[0])}% 100%`,
+      backgroundImage: `linear-gradient(${color}, ${color})`,
+    };
+  };
+
   return(
     <div className="light-settings__item">
       <h3 className="light-settings__item__title">{props.color.toUpperCase()}</h3>
       <div className="light-settings__item__description">{description}</div>
       <div className="light-settings__item__description">Available range: {props.range[0]} .. {props.range[1]}</div>
-      <div className="input-fields">
+      <div className="light-settings__input-wrapper">
+        <div className="input-label min-label">{props.range[0]}</div>
         <input
           type="range"
           min={props.range[0]}
           max={props.range[1]}
           value={value}
           onChange={(e) => {
-            if (checkIfMaximumNotExceeded()) {
-              setValue(parseInt(e.target.value))
-              fireRequiredLightDispatch();  
-            } else if (parseInt(e.target.value) < value) {
-              setValue(parseInt(e.target.value))
-              fireRequiredLightDispatch();  
-            } else {
-              alert("Maximum light value exceeded. Please decrease the value of another light before increasing this one.");
-            }        
+            handleChange(e);
           }}
-          onMouseUp={(e) => {
-            fireRequiredLightDispatch();  
-          }}
+          style={getBackgroundSize()}
+          // onMouseUp={(e) => {
+          //   fireRequiredLightDispatch();  
+          // }}
         />
-        <input
-          type="number"
-          min={value}
-          max={props.range[1]}
-          value={value}
-          onChange={(e) => {
-            setValue(parseInt(e.target.value));
-            fireRequiredLightDispatch();
-          }}
-        />
+        <div className="input-label current-label">{value}</div>        
       </div>
     </div>
   )

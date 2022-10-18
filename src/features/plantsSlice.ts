@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-import { PlantCardProps } from '../types';
-import { objectToArray } from '../utils/objectToArray';
+import { PlantCardProps } from '../shared/types';
+import { objectToArray } from '../shared/utils/objectToArray';
 import data from '../data/data.json';
 
 // Prepare initial data from JSON file in case the fetch to external API fails

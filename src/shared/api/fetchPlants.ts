@@ -1,5 +1,5 @@
 import axios from "axios";
-import { objectToArray } from "../../utils/objectToArray";
+import { objectToArray } from "../utils/objectToArray";
 
 /**
  * @description Fetch the plants data from the external API and convert it into an array of objects

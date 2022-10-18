@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { PlantCardProps } from '../types';
+import { PlantCardProps } from '../shared/types';
 import data from '../data/data.json';
-import { objectToArray } from "../utils/objectToArray";
+import { objectToArray } from "../shared/utils/objectToArray";
 
 /**
  * @description take the plant data from JSON file or external API if plant ID is kept in LS, 

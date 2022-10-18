@@ -2,8 +2,13 @@ import { useEffect } from "react";
 import { PlantCard } from "./PlantCard";
 import { useAppDispatch, useAppSelector } from "../shared/store/hooks";
 import { getPlants } from "../features/plantsSlice";
+import { PlantCardProps } from "../shared/types";
 
-export const PlantList = () => {
+interface PlantListProps {
+  plants: PlantCardProps[];
+};
+
+export const PlantList = (props: PlantListProps) => {
 
   const dispatch = useAppDispatch();
 
@@ -17,12 +22,11 @@ export const PlantList = () => {
   /**
    * @description Receive plants data from the Redux store 
    **/ 
-   const plants = useAppSelector((state) => state.plants.plants);
   
-  if (plants.length > 0) {
+  if (props.plants.length > 0) {
     return (
       <div className="plants-container">
-        {plants.map((item: any) => {
+        {props.plants.map((item: any) => {
           return <PlantCard key={item.id} {...item} />;
         })}    
       </div>

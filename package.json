@@ -1,8 +1,8 @@
 {
-  "name": "agrilution",
+  "name": "frontend_ws_latysheva",
   "version": "0.1.0",
-  "homepage": "https://mlatysheva.github.io/agrilution_app",
   "private": true,
+  "homepage": "https://mlatysheva.github.io/agrilution_app/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
@@ -13,7 +13,6 @@
     "@types/react-dom": "^18.0.6",
     "axios": "^1.1.2",
     "chartjs": "^0.3.24",
-    "gh-pages": "^4.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
@@ -24,7 +23,6 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
     "deploy": "gh-pages -d build --message 'deploy: agrilution app to GitHub Pages'"
   },
   "eslintConfig": {
@@ -46,7 +44,9 @@
     ]
   },
   "devDependencies": {
+    "@babel/preset-typescript": "^7.18.6",
     "@reduxjs/toolkit": "^1.8.6",
+    "gh-pages": "^4.0.0",
     "react-redux": "^8.0.4",
     "react-router-dom": "^6.4.2",
     "sass": "^1.55.0"

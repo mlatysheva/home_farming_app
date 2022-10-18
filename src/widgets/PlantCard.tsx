@@ -1,9 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import { setSelectedPlant } from "../features/selectedPlantSlice";
+import { constants } from "../shared/constants";
 import { useAppDispatch } from "../shared/store/hooks";
-import { PlantCardProps } from "../types";
-import { constants } from "../utils/constants";
-import { Tags } from "./Tags";
+import { PlantCardProps } from "../shared/types";
 
 /**
  * @description: PlantCard component renders a single plant card
@@ -20,15 +19,16 @@ export const PlantCard = (props: PlantCardProps) =>{
    * @description: Set the selected plant to the Redux store, navigate to the selected plant page and set the id to LS
    */
   const handlePlant = () => {
-    navigate(`/${constants.baseUrl}/plants/${props.id}`);
+    navigate(`/agrilution_app/plants/${props.id}`);
     dispatch(setSelectedPlant(props));
+    // window.location.reload();
+    window.scrollTo({top: 0, left: 0, behavior: "smooth"});
     localStorage.setItem("selectedPlant", JSON.stringify(props.id));
   }
   
   return (
     <div
       className="card plant-card"
-      onClick={() => handlePlant()}
     >
       <h3 className="plant-title">{props.title}</h3>
       <img

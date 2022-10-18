@@ -1,0 +1,241 @@
+.selected-plant__page {
+  height: calc(100% - var(--header-height) - var(--footer-height));
+}
+.selected-plant__top-container {
+  height: auto;
+  width: 100%;
+  padding: 2rem;
+  padding-bottom: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.selected-plant__image {
+  max-width: var(--selected-image-width);
+  height: auto;
+  object-fit: cover;
+}
+
+.tags-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.tags__wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 1rem;
+}
+
+.tags__title {
+  margin-top: 1rem;
+}
+
+.tag {
+  display: inline-block;
+  margin-right: 1rem;
+  cursor: pointer;
+  color: var(--accent-text-color);
+}
+
+.tag:hover {
+  color: var(--accent-text-color-hover);
+  text-decoration: underline;
+}
+
+.plant-details-wrapper {
+  width: 100%;  
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.details-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin-left: 2rem;
+}
+
+.details-field {
+  text-align: left;
+  width: 100%;
+}
+
+.tagged-plants__list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 5px 10px 2px rgba(100, 57, 135, 0.2);
+  background-color: var(--secondary-color);
+}
+
+.tagged-plants__title {
+  margin-top: 3rem;
+  color: white;
+}
+
+.tagged-plants__close-button {
+  margin-bottom: 3rem;
+}
+
+.lights-section {
+  width: 100%;
+  align-self: flex-start;
+  padding-left: 4rem;
+  padding-right: 2rem;
+}
+
+.light-settings__container {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.light-settings__item {
+  width: calc(100vw / 2 - 2rem);
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.light-settings__item__description {
+  text-align: left;
+  margin-bottom: 0.5rem;
+}
+
+.error-message {
+  color: rgb(157, 23, 23);
+  font-weight: bold;
+  margin-top: 1rem;
+  text-align: left;
+  height: 40px;
+}
+
+.light-settings__input-wrapper {
+  width: 230px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+input[type="range"] {
+  appearance: none;
+  width: 200px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+  margin-left: 1rem;
+  margin-right: 1rem;
+	height: 7px;
+	border-radius: 5px;
+	background-image: linear-gradient(grey, grey);
+	background-repeat: no-repeat;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  appearance: none;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background: var(--secondary-color);
+  box-shadow: 0 0 2px 0 #555;
+  cursor: pointer;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+	-webkit-appearance: none;
+	box-shadow: none;
+	border: none;
+	background: transparent;
+}
+
+.input-label {
+  width: 2.5rem;
+  height: 1.5rem;
+}
+
+.current-lable {
+  border: 1px solid var(--accent-text-color);
+}
+
+@media (max-width: 1024px) {
+  .light-settings__container {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 768px) {
+  .selected-plant__top-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .plant-price.details-field {
+    text-align: center;
+  }
+
+  .plant-details-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .details-container {
+    align-items: center;
+  }
+
+  .lights-section {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  .light-settings__container {
+    align-items: center;
+  }
+
+  .back-button {
+    margin: 0 auto;
+    margin-bottom: 2rem;
+  }
+
+  .light-settings__item {
+    width: 100%;
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+  .details-container {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .selected-plant__top-container {
+    padding: 1rem;
+  }
+
+  .selected-plant__image {
+    max-width: 100%;
+  }
+
+  .footer a {
+    padding: 0;
+  }
+
+  .logo {
+    margin-left: 0.5rem;
+  }
+
+  .nav {
+    margin-right: 0.5rem;
+  }
+}

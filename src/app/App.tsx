@@ -10,12 +10,10 @@ import { store } from "../shared/store/store";
 import { SelectedPlantPage } from "../pages/SelectedPlantPage";
 import { Spinner } from "../shared/ui/Spinner";
 import { Footer } from "../widgets/Footer";
-import { constants } from "../utils/constants";
+import ErrorBoundary from "./ErrorBoundary";
+import { constants } from "../shared/constants";
 
-/**
- * @description This path is necessary for the deployment to github.
- */
-
+const baseUrl = "agrilution_app";
 /**
  * @description The main component of the app.
  * Renders each selected plant in a separate page: /plant/:id
@@ -24,20 +22,22 @@ import { constants } from "../utils/constants";
 function App() {
   return (
     <div className="App">
-    <BrowserRouter>
-      <Suspense fallback={<Spinner />}>
-        <Provider store={store}>
-          <Header />
-          <Routes>
-            <Route path={`/${constants.baseUrl}`} element={<HomePage />} />
-            <Route path={`/${constants.baseUrl}/plants`} element={<PlantsPage />} />
-            <Route path={`/${constants.baseUrl}/plants/:id`} element={<SelectedPlantPage />} />
-            <Route path={`/${constants.baseUrl}/*`} element={<NotFoundPage />} />
-          </Routes>
-          <Footer />
-        </Provider>
-      </Suspense>
-    </BrowserRouter>
+      <ErrorBoundary>
+        <BrowserRouter>
+          <Suspense fallback={<Spinner />}>
+            <Provider store={store}>
+              <Header />
+              <Routes>
+                <Route path="/agrilution_app" element={<HomePage />} />
+                <Route path="/agrilution_app/plants" element={<PlantsPage />} />
+                <Route path="/agrilution_app/plants/:id" element={<SelectedPlantPage />} />
+                <Route path="/agrilution_app/*" element={<NotFoundPage />} />
+              </Routes>
+              <Footer />
+            </Provider>
+          </Suspense>
+        </BrowserRouter>
+      </ErrorBoundary>
     </div>
   );
 }

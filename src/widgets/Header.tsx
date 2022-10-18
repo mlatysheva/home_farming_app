@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { constants } from "../utils/constants";
+import { constants } from "../shared/constants";
 
 export const Header = () => {
 
@@ -7,8 +7,8 @@ export const Header = () => {
     <div className="header">
       <a href="https://www.agrilution.com/"className="logo" target="_blank" rel="noreferrer"></a>
       <div className="nav">
-        <Link to={`/${constants.baseUrl}`}>Home</Link>
-        <Link to={`/${constants.baseUrl}/plants`}>Plants</Link>
+        <Link to="/agrilution_app">Home</Link>
+        <Link to="/agrilution_app/plants">Plants</Link>
       </div>
     </div>
   )
