@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/home_farming_app/static/css/main.61da3283.css",
+    "main.js": "/home_farming_app/static/js/main.b898119f.js",
+    "static/media/company-logo.png": "/home_farming_app/static/media/company-logo.deebe90e1e2a10c9bf5a.png",
+    "static/media/github-30.svg": "/home_farming_app/static/media/github-30.4cd3a2bc790226c346ae.svg",
+    "index.html": "/home_farming_app/index.html",
+    "main.61da3283.css.map": "/home_farming_app/static/css/main.61da3283.css.map",
+    "main.b898119f.js.map": "/home_farming_app/static/js/main.b898119f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.61da3283.css",
+    "static/js/main.b898119f.js"
+  ]
+}
