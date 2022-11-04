@@ -8,11 +8,8 @@ The deployed app is hosted on GitHub pages here:
 <br>
 https://mlatysheva.github.io/home_farming_app 
 
-## External API
-The data is stored here: https://github.com/mlatysheva/home_farming_app_api/blob/main/data.json
-
 ## Implemented functionality
-- The data is retrieved from the above extermal API  dynamically (the initial data is loaded from the json file contained within this repository)
+- The data is retrieved from an extermal API dynamically (the initial data is loaded from the json file contained within this repository)
 - The UI implements the following features:
 	- There is a list of all available plants
 	- The user can select a specific plant
@@ -76,6 +73,5 @@ The build is minified and the filenames include the hashes.\
 
 - Responsive design is provided:
 <br>
-![Home screen mobile](screeshotsUI/screenshot_mobile_home.png)
 ![Plant card mobile](screeshotsUI/screenshot_mobile_plants.png)
 ![LED settings on mobile](screeshotsUI/screenshot_mobile_settings.png)
