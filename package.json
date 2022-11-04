@@ -1,8 +1,8 @@
 {
-  "name": "frontend_ws_latysheva",
+  "name": "home_farming_app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://mlatysheva.github.io/agrilution_app/",
+  "homepage": "https://mlatysheva.github.io/home_farming_app/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
@@ -23,7 +23,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "deploy": "gh-pages -d build --message 'deploy: agrilution app to GitHub Pages'"
+    "deploy": "gh-pages -d build --message 'deploy: home farming app to GitHub Pages'"
   },
   "eslintConfig": {
     "extends": [

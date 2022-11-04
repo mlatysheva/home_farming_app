@@ -7,7 +7,7 @@ import { objectToArray } from "../utils/objectToArray";
  */
 export const fetchPlants = () => {
   const fetching = async () => {
-    const response = await axios.get("http://dev.api.agrilution.com/plantData.json");
+    const response = await axios.get("https://github.com/mlatysheva/home_farming_app_api/blob/main/data.json");
     const plantData = objectToArray(response.data);
     return plantData;
   }

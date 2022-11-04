@@ -4,8 +4,8 @@ import { constants } from "../shared/constants";
 export const HomePage = () => {
   return (
     <div className="main home-page">
-      <h1>Wish to grow your home garden with Agrilution?</h1>
-      <Link to="/agrilution_app/plants">
+      <h1>Wish to have your own garden at home?</h1>
+      <Link to="/home_farming_app/plants">
         <button className="home-button">
           Count me in!
         </button>

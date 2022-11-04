@@ -13,7 +13,7 @@ import { Footer } from "../widgets/Footer";
 import ErrorBoundary from "./ErrorBoundary";
 import { constants } from "../shared/constants";
 
-const baseUrl = "agrilution_app";
+const baseUrl = "home_farming_app";
 /**
  * @description The main component of the app.
  * Renders each selected plant in a separate page: /plant/:id
@@ -28,10 +28,10 @@ function App() {
             <Provider store={store}>
               <Header />
               <Routes>
-                <Route path="/agrilution_app" element={<HomePage />} />
-                <Route path="/agrilution_app/plants" element={<PlantsPage />} />
-                <Route path="/agrilution_app/plants/:id" element={<SelectedPlantPage />} />
-                <Route path="/agrilution_app/*" element={<NotFoundPage />} />
+                <Route path="/home_farming_app" element={<HomePage />} />
+                <Route path="/home_farming_app/plants" element={<PlantsPage />} />
+                <Route path="/home_farming_app/plants/:id" element={<SelectedPlantPage />} />
+                <Route path="/home_farming_app/*" element={<NotFoundPage />} />
               </Routes>
               <Footer />
             </Provider>

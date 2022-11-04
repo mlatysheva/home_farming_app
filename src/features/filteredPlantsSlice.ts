@@ -16,10 +16,13 @@ export const getFilteredPlants = createAsyncThunk(
   'filteredPlants/getFilteredPlants',
   async (selectedTag: string, { rejectWithValue, dispatch }) => {
     try {
-      const res = await axios.get(
-        `https://dev.api.agrilution.com/plantData.json`
+      const res = await fetch(
+        `https://dev.api.agrilution.com/plantData.json`, {
+        // 'https://github.com/mlatysheva/home_farming_app_api/blob/main/data.json', {
+        }
       );
-      const plants = objectToArray(res.data);
+      const data = await res.json();
+      const plants = objectToArray(data);
       if (selectedTag) {
       const filteredPlants = plants.filter((plant) => {
         return (plant.tags).includes(selectedTag);

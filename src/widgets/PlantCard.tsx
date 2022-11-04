@@ -19,7 +19,7 @@ export const PlantCard = (props: PlantCardProps) =>{
    * @description: Set the selected plant to the Redux store, navigate to the selected plant page and set the id to LS
    */
   const handlePlant = () => {
-    navigate(`/agrilution_app/plants/${props.id}`);
+    navigate(`/home_farming_app/plants/${props.id}`);
     dispatch(setSelectedPlant(props));
     // window.location.reload();
     window.scrollTo({top: 0, left: 0, behavior: "smooth"});

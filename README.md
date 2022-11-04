@@ -1,57 +1,18 @@
-# Description:
-This is an SPA created to pass a coding challenge of Agrilution, a company that builds vertical farming devices with which a customer can grow plants. This app represents a user interface for users to get information about specific plants and modify the LED intensity.
-Various color types have certain effects on the plants. Each plant requires a different mix of color spectrum, and expects a certain min and max range on the spectrum intensity. 
-<br>
-The colors are:
-- blue
-- white
-- red
-- far-red
+# Home Farming App
+This is a sample SPA that fetches plants from an external API. This app represents a user interface for users to get information about specific plants and modify light settings necessary to grow the plants at home. <br>
+There is a plage that shows available plants. The user can select a particular plant to view details and to set light settings.<br>
+There are light setting inputs for each plant and a list of tags. The user can filter available plants by a given tag and the list of the filtered plants will be monted into the current plant page
 
 ## Deployed app
 The deployed app is hosted on GitHub pages here:
 <br>
-https://mlatysheva.github.io/agrilution_app 
+https://mlatysheva.github.io/home_farming_app 
 
-## API Endpoint 
-
-The following api endpoint was used for this app:
-
-Secured:
-https://dev.api.agrilution.com/plantData.json
-
-The endpoint returns an object with different fields. An example and explanation of these fields is shown below:
-
-Example:
-```json
-"some_id": {
-	"title": "Kale",
-	"description": "abc",
-	"images": ["url"],
-	"light_settings": {
-		"blue": [33, 74],
-		"farred": [13, 94],
-		"red": [3, 78],
-		"white": [2, 79]
-	},
-	"price": "9.95",
-	"tags": ["harvestweeks:3-4", "line:essentials"]
-}
-```
-
-Explanation:
-```
-some_id = a unique id for each plant
-title = the english title of the plant
-description = a description for the plant
-images = urls pointing to one or more images of the plant
-light_settings = the range of light settings allowed in %. In this example, the plant can handle any blue light intensity between 33 and 74% 
-price = the price for the plant in euros
-tags = a list of tags which describe the plants
-```
+## External API
+The data is stored here: https://github.com/mlatysheva/home_farming_app_api/blob/main/data.json
 
 ## Implemented functionality
-- The data is retrieved from the above endpoint dynamically (the initial data is loaded from the json file contained within this repository)
+- The data is retrieved from the above extermal API  dynamically (the initial data is loaded from the json file contained within this repository)
 - The UI implements the following features:
 	- There is a list of all available plants
 	- The user can select a specific plant
@@ -62,12 +23,9 @@ tags = a list of tags which describe the plants
 		- Lets the user select a light intensity for each color that lies within the intensity range specified for this plant (e.g. "blue": [30, 100] means that the minimum intensity is 30% and the maximum intensity is 100%)
 		- Ensures that the overall light value (all colours added up) does not exceed 300%
     - Enables the user to filter all plants by a given tag from the selected plant page. The list of the filtered plants is mounted in the selected plant page and the user can click on another plant in the filtered list, which will be opened in a separate route page
-
-## Bonus Tasks implemented:
+    - There is a search by tag functionality, whereby the user can click on a tag on the plant specific page and see a list with all available plants that have the same tag, mounted into the selected plant page
 - Different urls based on the id are used for each selected plant
-- Creative UIs and responsive design are implemented
-- SCSS is used
-- A tag search is implemented whereby the user can click on a tag on the plant specific page and see a list with all available plants that have the same tag, mounted into the selected plant page
+- Responsive design is implemented
 
 ## Stack used:
 - Typescript
@@ -78,7 +36,7 @@ tags = a list of tags which describe the plants
 
 ## Installation and usage
 
-1. Clone the repository to your local machine by running `git clone https://mlatysheva@bitbucket.org/agrilution-os/frontend_ws_latysheva.git` from your terminal
+1. Clone the repository to your local machine by running `git clone https://github.com/mlatysheva/home_farming_app.git` from your terminal
 2. `cd` into the cloned repository
 3. Run `npm install` from the terminal to install all the dependencies
 4. Run `npm run start` to start the app in the development mode.\

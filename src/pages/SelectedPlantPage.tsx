@@ -105,7 +105,7 @@ export const SelectedPlantPage = () => {
             className="back-button"
             type="button"
             onClick={() => {
-              navigate("/agrilution_app/plants");
+              navigate("/home_farming_app/plants");
             }}
           >
             Back
